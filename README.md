@@ -36,5 +36,8 @@ Patches for customizing our local DMOJ instance
 11. Copy the patched version from the local host to the production host with: `rsync -azP ../online-judge-custom/ root@dmoj-prod:/etc/dmoj/site`
 
 12. Connect to the production host and:
+  - Go to the installation folder: `cd /etc/dmoj`
+  - Activate the virtualhost: `. dmojsite/bin/activate`
+  - Go to the online-judge folder: `cd site`
   - Perform the migrations: `python3 manage.py migrate`
   - Restart the service and test.
