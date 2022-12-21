@@ -1,5 +1,5 @@
---- ../online-judge-source/templates/contest/contest.html	2022-12-21 09:45:08.978800124 +0100
-+++ ../online-judge-custom/templates/contest/contest.html	2022-12-21 10:20:20.456047406 +0100
+--- ../online-judge-source/templates/contest/contest.html	2022-12-21 11:42:51.468954379 +0100
++++ ../online-judge-custom/templates/contest/contest.html	2022-12-21 11:12:48.236375000 +0100
 @@ -189,7 +189,7 @@
          <hr>
          <div class="contest-problems">
