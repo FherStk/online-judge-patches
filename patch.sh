@@ -3,7 +3,7 @@ PATCH="2022-12-20"
 
 cd ..
 echo -n "Backing up... "
-cp -R online-judge-custom online-judge-custom.backup
+cp -Rrf online-judge-custom online-judge-custom.backup
 echo "OK"
 echo
 
@@ -19,6 +19,6 @@ echo
 echo "Patching with custom changes:"
 cd ..
 for f in online-judge-patches/$PATCH/*; do
-    patch -p1 < "$f"
+    patch -p1 -f < "$f"
 done
 echo "Done!"
