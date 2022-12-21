@@ -33,6 +33,8 @@ cp -r online-judge-source online-judge-custom
 
 rm -rf online-judge-source
 cp -r online-judge-source.backup online-judge-source
+
+rm -rf online-judge-source.backup
 echo "Done!"
 echo
 
