@@ -1,14 +1,5 @@
 --- ../online-judge-source/templates/contest/contest.html	2022-12-21 11:42:51.468954379 +0100
 +++ ../online-judge-custom/templates/contest/contest.html	2022-12-21 11:12:48.236375000 +0100
-@@ -189,7 +189,7 @@
-         <hr>
-         <div class="contest-problems">
-             <h2 style="margin-bottom: 0.2em"><i class="fa fa-fw fa-question-circle"></i>{{ _('Problems') }} </h2>
--            <table class="table striped">
-+            <table id="contest-problems" class="table">
-                 <thead>
-                 <tr>
-                     <th>{{ _('Problem') }}</th>
 @@ -236,11 +236,11 @@
  
      <hr>
