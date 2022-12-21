@@ -1,0 +1,26 @@
+--- online-judge-dmoj/templates/contest/contest.html	2022-12-21 09:45:08.978800124 +0100
++++ online-judge-elpuig/templates/contest/contest.html	2022-12-21 10:20:20.456047406 +0100
+@@ -189,7 +189,7 @@
+         <hr>
+         <div class="contest-problems">
+             <h2 style="margin-bottom: 0.2em"><i class="fa fa-fw fa-question-circle"></i>{{ _('Problems') }} </h2>
+-            <table class="table striped">
++            <table id="contest-problems" class="table">
+                 <thead>
+                 <tr>
+                     <th>{{ _('Problem') }}</th>
+@@ -236,11 +236,11 @@
+ 
+     <hr>
+     <span class="social">
+-        {{ post_to_facebook(request, contest, '<i class="fa fa-facebook-official"></i>') }}
+-        {{ post_to_twitter(request, SITE_NAME + ':', contest, '<i class="fa fa-twitter"></i>') }}
++        {#{ post_to_facebook(request, contest, '<i class="fa fa-facebook-official"></i>') }#}
++        {#{ post_to_twitter(request, SITE_NAME + ':', contest, '<i class="fa fa-twitter"></i>') }#}
+     </span>
+ 
+-    {% include "comments/list.html" %}
++    {#% include "comments/list.html" %#}
+ {% endblock %}
+ 
+ {% block description_end %}{% endblock %}
