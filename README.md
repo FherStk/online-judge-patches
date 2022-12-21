@@ -10,7 +10,7 @@ Patches for customizing our local DMOJ instance
 
 1. Create a new folder setting as its name the last dmoj's online-judge commit date. *Important*: all the commands will be launched from the current project root folder (online-judge-patches/).
 
-2. Make a copy of the production dmoj's online-judge instance into the local host, for example: `scp -r root@dmoj-prod:/etc/dmoj/site ../online-judge-custom`
+2. Make a copy of the production dmoj's online-judge instance into the local host, for example: `rsync -azP root@dmoj-prod:/etc/dmoj/site/ ../online-judge-custom`
 
 3. Make sure the `online-judge-source` project is updated (git pull).
 
@@ -23,3 +23,18 @@ Patches for customizing our local DMOJ instance
 7. Edit the file `patch.sh` and setup the `PATCH` var with the newly created folder name.
 
 8. Run the `patch.sh` script: `./patch.sh`
+
+9. At this point, the project folder should contain the following:
+  - dmoj
+    - online-judge-patches        (this project)
+    - online-judge-source         (the original one)
+    - online-judge-custom         (the patched custom one)
+    - online-judge-custom.backup  (the original custom one)
+
+10. Opening the `online-judge-custom` project with Visual Studio Code should prompt every customized file as commit pending changes.
+
+11. Copy the patched version from the local host to the production host with: `rsync -azP ../online-judge-custom/ root@dmoj-prod:/etc/dmoj/site`
+
+12. Connect to the production host and:
+  - Perform the migrations: `python3 manage.py migrate`
+  - Restart the service and test.
