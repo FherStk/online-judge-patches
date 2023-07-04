@@ -40,4 +40,5 @@ Patches for customizing our local DMOJ instance
   - Activate the virtualhost: `. dmojsite/bin/activate`
   - Go to the online-judge folder: `cd site`
   - Perform the migrations: `python3 manage.py migrate`
-  - Restart the service and test.
+  - If needed, upgrade the dmoj judge service: `pip3 install --upgrade dmoj`
+  - Restart the server and test: `sudo reboot`
