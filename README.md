@@ -40,6 +40,12 @@ Patches for customizing our local DMOJ instance
   - Activate the virtualhost: `. dmojsite/bin/activate`
   - Go to the online-judge folder: `cd site`
   - Perform the migrations: `python3 manage.py migrate`
-  - Compilte the CSS styles: `./make_style.sh`
+  - Compilte the CSS styles and setup static files: 
+    ```
+    ./make_style.sh
+    python3 manage.py collectstatic
+    python3 manage.py compilemessages
+    python3 manage.py compilejsi18n
+    ```
   - If needed, upgrade the dmoj judge service: `pip3 install --upgrade dmoj`
   - Restart the server and test: `sudo reboot`
