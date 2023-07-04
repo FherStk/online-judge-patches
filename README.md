@@ -31,7 +31,7 @@ Patches for customizing our local DMOJ instance
     - online-judge-custom         (the patched custom one)
     - online-judge-custom.backup  (the original custom one)
 
-10. Opening the `online-judge-custom` project with Visual Studio Code should prompt every customized file as commit pending changes.
+10. Opening the `online-judge-custom` project with Visual Studio Code should prompt every customized file as commit pending changes. Review it and fix it if needed.
 
 11. Copy the patched version from the local host to the production host with: `rsync -azP ../online-judge-custom/ root@dmoj-prod:/etc/dmoj/site`
 
