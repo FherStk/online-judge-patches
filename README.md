@@ -6,7 +6,7 @@ Patches for customizing our local DMOJ instance
   - dmoj
     - online-judge-patches (this project: `git clone https://github.com/FherStk/online-judge-patches.git`)
     - online-judge-source  (the original one: `git clone https://github.com/DMOJ/online-judge.git online-judge-source`)
-    - online-judge-custom  (the custom one: it will be copied from source)
+    - online-judge-custom  (the custom one: keep it empty, because it will be copied from source later.)
 
 1. Within the `online-judge-patches` path, create a new folder using the current date as the name. *Important*: all the commands will be launched from the current folder (online-judge-patches/).
 
