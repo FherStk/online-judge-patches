@@ -1,5 +1,5 @@
---- ../online-judge-custom/templates/submission/list.html	2023-12-23 12:54:49.326961617 +0100
-+++ ../online-judge-production/templates/submission/list.html	2023-12-23 17:10:26.801813174 +0100
+--- ../online-judge-custom/templates/submission/list.html	2023-12-23 17:49:21.408412762 +0100
++++ ../online-judge-production/templates/submission/list.html	2023-12-23 17:53:32.862329577 +0100
 @@ -235,10 +235,12 @@
                          console.log('Navigated away');
                          return;

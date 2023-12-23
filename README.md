@@ -35,7 +35,9 @@ Patches for customizing our local DMOJ instance.
 
 12. Copy the patched version from the local host to the production host with: `rsync -azP ../online-judge-production/ root@dmoj-prod:/etc/dmoj/site`
 
-13. Connect to the production host and:
+13. Commit only changes on online-judge-patches, undo changes on other projects.
+
+14. Connect to the production host and:
   - Go to the installation folder: `cd /etc/dmoj`
   - Activate the virtualhost: `. dmojsite/bin/activate`
   - Go to the online-judge folder: `cd site`
