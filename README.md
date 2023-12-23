@@ -14,28 +14,42 @@ Patches for customizing our local DMOJ instance
 
 3. Opening the `online-judge-custom` project with Visual Studio Code will prompt every customized file as commit pending changes (git fetch needed).
 
-4. At `online-judge-patches`, run a diff command for every file or folder within online-judge that has been customized, for example: `diff -Nur ../online-judge-source/templates/problem/problem.html ../online-judge-custom/templates/problem/problem.html > 2022-12-20/templates_problem.txt`
+4. Ignore (locally) some files that should not be uploaded or shared:
+`nano .git/info/exclude`
 
-5. Review the patch files, because could include custom changes and also legit updates; if so, remove the legit updates (remote changes).
+Add the following:
+```
+node_modules/*
+<desired bridge log path>
+bridge.log
+package-lock.json
+package.json
+dmoj/uwsgi.ini
+websocket/config.js
+```
 
-6. The folder created at the first step contains all the customization done into the production dmoj's online-judge instance.
+5. At `online-judge-patches`, run a diff command for every file or folder within online-judge that has been customized, for example: `diff -Nur ../online-judge-source/templates/problem/problem.html ../online-judge-custom/templates/problem/problem.html > 2022-12-20/templates_problem.txt`
 
-7. Edit the file `patch.sh` and setup the `PATCH` var with the newly created folder name.
+6. Review the patch files, because could include custom changes and also legit updates; if so, remove the legit updates (remote changes).
 
-8. Run the `patch.sh` script: `./patch.sh`
+7. The folder created at the first step contains all the customization done into the production dmoj's online-judge instance.
 
-9. At this point, the project folder should contain the following:
+8. Edit the file `patch.sh` and setup the `PATCH` var with the newly created folder name.
+
+9. Run the `patch.sh` script: `./patch.sh`
+
+10. At this point, the project folder should contain the following:
   - dmoj
     - online-judge-patches        (this project)
     - online-judge-source         (the original one)
     - online-judge-custom         (the patched custom one)
     - online-judge-custom.backup  (the original custom one)
 
-10. Opening the `online-judge-custom` project with Visual Studio Code should prompt every customized file as commit pending changes. Review it and fix it if needed.
+11. Opening the `online-judge-custom` project with Visual Studio Code should prompt every customized file as commit pending changes. Review it and fix it if needed.
 
-11. Copy the patched version from the local host to the production host with: `rsync -azP ../online-judge-custom/ root@dmoj-prod:/etc/dmoj/site`
+12. Copy the patched version from the local host to the production host with: `rsync -azP ../online-judge-custom/ root@dmoj-prod:/etc/dmoj/site`
 
-12. Connect to the production host and:
+13. Connect to the production host and:
   - Go to the installation folder: `cd /etc/dmoj`
   - Activate the virtualhost: `. dmojsite/bin/activate`
   - Go to the online-judge folder: `cd site`
