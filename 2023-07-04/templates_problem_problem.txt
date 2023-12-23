@@ -1,0 +1,11 @@
+--- ../online-judge-source/templates/problem/problem.html	2023-07-04 11:17:06.490822784 +0200
++++ ../online-judge-custom/templates/problem/problem.html	2022-12-21 16:18:05.000000000 +0100
+@@ -343,7 +343,7 @@
+             {% endif %}
+         </div>
+     {% else %}
+-        {% include "comments/list.html" %}
++        {#% include "comments/list.html" %#}
+     {% endif %}
+ {% endblock %}
+ 
