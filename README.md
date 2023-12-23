@@ -14,10 +14,7 @@ Patches for customizing our local DMOJ instance
 
 3. Opening the `online-judge-custom` project with Visual Studio Code will prompt every customized file as commit pending changes (git fetch needed).
 
-4. Ignore (locally) some files that should not be uploaded or shared:
-`nano .git/info/exclude`
-
-Add the following:
+4. Ignore (locally) some files that should not be uploaded or shared with `nano .git/info/exclude` and add the following:
 ```
 node_modules/*
 <desired bridge log path>
