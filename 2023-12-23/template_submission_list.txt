@@ -1,0 +1,16 @@
+--- ../online-judge-source/templates/submission/list.html	2023-12-23 12:27:27.096573686 +0100
++++ ../online-judge-custom/templates/submission/list.html	2023-07-05 13:18:51.000000000 +0200
+@@ -235,10 +235,11 @@
+                         console.log('Navigated away');
+                         return;
+                     }
+-                    console.log('You probably should refresh?');
++                    //TODO: everything works but this message still appears (unable to fix websocket connetion).
++                    /*console.log('You probably should refresh?');
+                     $('.ws-closed').show().find('a').click(function () {
+                         window.location.reload();
+-                    });
++                    });*/
+                 };
+                 return receiver;
+             }

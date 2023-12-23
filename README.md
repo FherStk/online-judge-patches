@@ -1,31 +1,20 @@
 # online-judge-patches
-Patches for customizing our local DMOJ instance
+Patches for customizing our local DMOJ instance.
 
 # How to use it
-0. Setup the project folders as:
+1. Setup the project folders as:
   - dmoj
     - online-judge-patches (this project: `git clone https://github.com/FherStk/online-judge-patches.git`)
-    - online-judge-source  (the original one: `git clone https://github.com/DMOJ/online-judge.git online-judge-source`)
-    - online-judge-custom  (the custom one: keep it empty, because it will be copied from source later.)
+    - online-judge-custom  (our customized code: `git clone https://github.com/FherStk/online-judge.git online-judge-custom`)
+    - online-judge-production (our production code: `rsync -azP root@dmoj-prod:/etc/dmoj/site/ online-judge-production`)
 
-1. Within the `online-judge-patches` path, create a new folder using the current date as the name. *Important*: all the commands will be launched from the current folder (online-judge-patches/).
+2. Within the `online-judge-patches` path, create a new folder using the current date as the name. *Important*: all the commands will be launched from the current folder (online-judge-patches/).
 
-2. Make a copy of the production dmoj's online-judge instance into the local host, for example: `rsync -azP root@dmoj-prod:/etc/dmoj/site/ ../online-judge-custom`
+3. Opening the `online-judge-production` project with Visual Studio Code will prompt every customized file as commit pending changes to the 'custom' repo (fetch needed). The idea is mantain the 'custom' repo updated with the 'source' repo (the original DMOJ one) sending some pull-requests. But sometimes, a bit of customization is needed in production (for example, to avoid the wevent error).
 
-3. Opening the `online-judge-custom` project with Visual Studio Code will prompt every customized file as commit pending changes (git fetch needed).
+4. Files can be ignored locally adding entries with `nano .git/info/exclude`.
 
-4. Ignore (locally) some files that should not be uploaded or shared with `nano .git/info/exclude` and add the following:
-```
-node_modules/*
-<desired bridge log path>
-bridge.log
-package-lock.json
-package.json
-dmoj/uwsgi.ini
-websocket/config.js
-```
-
-5. At `online-judge-patches`, run a diff command for every file or folder within online-judge that has been customized, for example: `diff -Nur ../online-judge-source/templates/problem/problem.html ../online-judge-custom/templates/problem/problem.html > 2022-12-20/templates_problem.txt`
+5. At `online-judge-patches`, run a diff command for every file or folder within online-judge that has been customized, for example: `diff -Nur ../online-judge-custom/templates/problem/problem.html ../online-judge-production/templates/problem/problem.html > 2022-12-20/templates_problem.txt`
 
 6. Review the patch files, because could include custom changes and also legit updates; if so, remove the legit updates (remote changes).
 
@@ -38,13 +27,13 @@ websocket/config.js
 10. At this point, the project folder should contain the following:
   - dmoj
     - online-judge-patches        (this project)
-    - online-judge-source         (the original one)
-    - online-judge-custom         (the patched custom one)
-    - online-judge-custom.backup  (the original custom one)
+    - online-judge-custom         (the custom code)    
+    - online-judge-production     (the production code, is the custom code with the patches applied)  
+    - online-judge-production.backup  (the original production code)
 
-11. Opening the `online-judge-custom` project with Visual Studio Code should prompt every customized file as commit pending changes. Review it and fix it if needed.
+11. Opening the `online-judge-production` project with Visual Studio Code should prompt every customized file as commit pending changes. Review it and fix it if needed.
 
-12. Copy the patched version from the local host to the production host with: `rsync -azP ../online-judge-custom/ root@dmoj-prod:/etc/dmoj/site`
+12. Copy the patched version from the local host to the production host with: `rsync -azP ../online-judge-production/ root@dmoj-prod:/etc/dmoj/site`
 
 13. Connect to the production host and:
   - Go to the installation folder: `cd /etc/dmoj`
